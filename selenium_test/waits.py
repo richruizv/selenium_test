@@ -3,6 +3,7 @@ from pyunitreport import HTMLTestRunner
 from selenium import webdriver
 from pyvirtualdisplay import Display
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 
 #Herramienta para hacer uso de las expected conditions y esperas explicitas
 from selenium.webdriver.support.ui import WebDriverWait
@@ -12,18 +13,19 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 
-class ImplicitWait(unittest.TestCase):
+class Waits(unittest.TestCase):
 
-    time = 10
-    create_time = 10
+    time = 5
+    create_time = 5
 
     def setUp(self):
         display = Display(visible=0, size=(800, 800))  
         display.start()
         self.driver = webdriver.Chrome(executable_path=r'/usr/bin/chromedriver')
         driver = self.driver
-        driver.get('https://demo-store.seleniumacademy.com/')
-    
+        driver.get('http://demo-store.seleniumacademy.com/')
+        driver.implicitly_wait(10)
+
     def test_account_link(self): #Cuentas del sitio
 
         #Esperar 10 segundos hasta que se cumpla la funcion
