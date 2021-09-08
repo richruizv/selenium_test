@@ -1,6 +1,7 @@
 import unittest
 from selenium import webdriver
 from pyvirtualdisplay import Display
+from pyunitreport import HTMLTestRunner
 
 class SearchTests(unittest.TestCase):
 
@@ -38,4 +39,4 @@ class SearchTests(unittest.TestCase):
         self.driver.quit()
 
 if __name__ == '__main__':
-    unittest.main(verbosity = 2, testRunner= HTMLTestRunner(output= 'reportes', report_name= 'hello-world-report'))
+    unittest.main(verbosity = 2, testRunner= HTMLTestRunner(output= 'reportes', report_name= 'search-test-report'))
